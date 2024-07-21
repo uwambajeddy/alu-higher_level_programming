@@ -1,11 +1,9 @@
 #!/usr/bin/python3
-"""Are you docuemnted ?"""
-
-
+"""import of modules"""
 import json
 
 
 def save_to_json_file(my_obj, filename):
-    """How far now"""
-    with open(filename, "w+") as f:
-        return json.dump(my_obj, f)
+    """function hta saves to json files"""
+    with open(filename, "w", encoding="utf-8") as a:
+        json.dump(my_obj, a)
