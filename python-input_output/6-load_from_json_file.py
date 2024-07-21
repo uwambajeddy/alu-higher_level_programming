@@ -1,11 +1,10 @@
 #!/usr/bin/python3
-"""Are you docuemnted ?"""
-
-
+"""imports json module"""
 import json
 
 
 def load_from_json_file(filename):
-    """How far now"""
-    with open(filename, "r") as f:
-        return json.load(f)
+    """function that loads from json file"""
+    with open(filename, "r", encoding="utf-8") as a:
+        data = json.load(a)
+        return data
