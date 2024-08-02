@@ -1,26 +1,18 @@
 #!/usr/bin/python3
-"""Documented now"""
-import requests
+"""sends the post"""
 import sys
+import requests
 
-if __name__ == '__main__':
+
+if __name__ == "__main__":
+    le = "" if len(sys.argv) == 1 else sys.argv[1]
+    pay = {"q": le}
+    req = requests.post("http://0.0.0.0:5000/search_user", data=pay)
     try:
-        params = sys.argv[1]
-    except IndexError:
-        params = ""
-    response = requests.post(
-        "http://0.0.0.0:5000/search_user",
-        data={"q": params}
-    )
-    try:
-        json_response = response.json()
-        if response.headers.get("Content-Type") == 'application/json':
-            if len(json_response) > 0:
-                print("[{}] {}".format(
-                    json_response["id"],
-                    json_response["name"])
-                )
-            else:
-                print("No result")
-    except:
+        res = req.json()
+        if res == {}:
+            print("No result")
+        else:
+            print("[{}] {}".format(res.get("id"), res.get("name")))
+    except ValueError:
         print("Not a valid JSON")

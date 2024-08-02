@@ -1,3 +1,3 @@
 #!/bin/bash
-# display body if 200
-curl -sLfG "$1"
+# connects in silent mode and allows redirection
+curl -sL "$1"

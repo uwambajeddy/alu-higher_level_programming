@@ -1,9 +1,9 @@
 #!/usr/bin/python3
-"""Doc"""
+"""matix divided"""
 
 
 def matrix_divided(matrix, div):
-    """"Doc"""
+    """"matrix divided"""
     if not isinstance(matrix, (list,)):
         raise TypeError("matrix must be a matrix "
                         "(list of lists) of integers/floats")

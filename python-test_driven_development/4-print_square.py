@@ -1,9 +1,9 @@
 #!/usr/bin/python3
-""""Doc"""
+""""prints a square"""
 
 
 def print_square(size):
-    """"Doc"""
+    """"prtin square"""
     if not isinstance(size, (int,)):
         raise TypeError("size must be an integer")
 

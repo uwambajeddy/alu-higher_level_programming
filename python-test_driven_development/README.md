@@ -1,1 +1,4 @@
-and now
+python-tests:
+=============
+
+Project to practice testings

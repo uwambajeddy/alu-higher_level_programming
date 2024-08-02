@@ -1,9 +1,10 @@
 #!/usr/bin/python3
-"""Documented now"""
-import requests
-import sys
+"""Displays the header"""
 
-if __name__ == '__main__':
+import sys
+import requests
+
+if __name__ == "__main__":
     url = sys.argv[1]
-    response = requests.get(url)
-    print("{}".format(response.headers.get("X-Request-Id")))
+    req = requests.get(url)
+    print(req.headers.get("X-Request-Id"))

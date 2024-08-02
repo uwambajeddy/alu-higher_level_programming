@@ -1,10 +1,11 @@
 #!/usr/bin/python3
-"""I documented you"""
+"""sends request to the url and displays the values"""
 
-import urllib.request
 import sys
+import urllib.request
 
-if __name__ == '__main__':
-    with urllib.request.urlopen(sys.argv[1]) as response:
-        header = response.info()
-        print(header["X-Request-Id"])
+if __name__ == "__main__":
+    url = sys.argv[1]
+    req = urllib.request.Request(url)
+    with urllib.request.urlopen(req) as answer:
+        print(dict(answer.headers).get("X-Request-Id"))

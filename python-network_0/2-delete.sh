@@ -1,3 +1,3 @@
 #!/bin/bash
-# send delete
+# Send the DELETE request in silent mode
 curl -sX DELETE "$1"

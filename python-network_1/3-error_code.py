@@ -1,19 +1,20 @@
 #!/usr/bin/python3
-"""I documented you"""
+"""scipt that intakes the url"""
 
-import urllib.request
-import urllib.error
-import sys
+from sys import argv
+from urllib.request import Request, urlopen
+from urllib.error import HTTPError, URLError
 
-if __name__ == '__main__':
-    """"Documented"""
-    url = sys.argv[1]
-    req = urllib.request.Request(url)
+
+if __name__ == "__main__":
+    "lets begin"
+    url = argv[1]
+    req = Request(url)
+
     try:
-        with urllib.request.urlopen(req) as response:
-            content = response.read()
-            print("{}".format(content.decode("utf-8")))
-    except urllib.error.HTTPError as e:
+        with urlopen(req) as response:
+            print(response.read().decode("utf-8"))
+    except HTTPError as e:
         print("Error code: {}".format(e.code))
-    except urllib.error.URLError as e:
+    except URLError as e:
         print(e.reason)

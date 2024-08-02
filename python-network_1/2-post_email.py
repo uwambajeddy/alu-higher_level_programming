@@ -1,17 +1,18 @@
 #!/usr/bin/python3
-"""I documented you"""
+"""
+script that intakes URL and email for CLI
+sends a POST request to the passed URL
+"""
 
+import sys
 import urllib.request
 import urllib.parse
-import sys
 
 if __name__ == '__main__':
-    """"Documented"""
+    """START"""
+    email = sys.argv[2]
     url = sys.argv[1]
-    values = {"email": sys.argv[2]}
-    data = urllib.parse.urlencode(values)
-    data = data.encode('ascii')  # data should be bytes
-    req = urllib.request.Request(url, data)
-    with urllib.request.urlopen(req) as response:
-        content = response.read()
-        print("{}".format(content.decode("utf-8")))
+    data = urllib.parse.urlencode({'email': email}).encode("utf-8")
+    request = urllib.request.Request(url, data=data, method="POST")
+    with urllib.request.urlopen(request) as f:
+        print(f.read().decode("utf-8"))

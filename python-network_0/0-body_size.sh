@@ -1,3 +1,3 @@
 #!/bin/bash
-# display Content-Length
-curl -sI "$1" | grep 'Content-Length' | cut -d " " -f2
+# sends a request in silent mode and displays byte size
+curl -s "$1" | wc -c
